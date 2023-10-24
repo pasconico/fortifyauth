@@ -15,7 +15,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->is_admin==1){
+        if(auth()->user()->user_type==1){
             return $next($request);
         }else{
             return redirect('home')->with('error', 'You dont have admin access.');
